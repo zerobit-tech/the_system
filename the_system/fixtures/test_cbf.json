@@ -1,0 +1,343 @@
+[{
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 1,
+    "fields": {
+        
+        "created_date": "2022-01-15T23:12:02.821Z",
+        "modified_date": "2022-01-15T23:12:02.821Z",
+        "frequency": 1,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "0.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "500.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "10.12"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 2,
+    "fields": {
+        
+        "created_date": "2022-01-15T23:12:02.821Z",
+        "modified_date": "2022-01-16T18:40:23.217Z",
+        "frequency": 1,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "500.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "2000.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "100.99"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 3,
+    "fields": {
+        
+        "created_date": "2022-01-15T23:13:55.544Z",
+        "modified_date": "2022-01-16T18:39:37.030Z",
+        "frequency": 2,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "0.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "100.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "10.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 4,
+    "fields": {
+        
+        "created_date": "2022-01-15T23:14:28.542Z",
+        "modified_date": "2022-01-16T18:41:06.089Z",
+        "frequency": 3,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "0.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "150.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "0.12"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 5,
+    "fields": {
+        
+        "created_date": "2022-01-15T23:14:48.091Z",
+        "modified_date": "2022-01-16T18:41:55.073Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "0.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "300.23",
+        "fee_amount_currency": "USD",
+        "fee_amount": "50"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 6,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:39:37.032Z",
+        "modified_date": "2022-01-16T18:39:37.032Z",
+        "frequency": 2,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "100.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "500.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "20.50"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 7,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:39:37.032Z",
+        "modified_date": "2022-01-16T18:39:37.032Z",
+        "frequency": 2,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "500.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "750.50",
+        "fee_amount_currency": "USD",
+        "fee_amount": "30.12"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 8,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:39:37.032Z",
+        "modified_date": "2022-01-16T18:39:37.032Z",
+        "frequency": 2,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "750.50",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "1333.33",
+        "fee_amount_currency": "USD",
+        "fee_amount": "50.98"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 9,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:39:37.032Z",
+        "modified_date": "2022-01-16T18:39:37.032Z",
+        "frequency": 2,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "1333.33",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "99999.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "100.11"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 10,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:40:23.217Z",
+        "modified_date": "2022-01-16T18:40:23.217Z",
+        "frequency": 1,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "2000.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "3320.20",
+        "fee_amount_currency": "USD",
+        "fee_amount": "300.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 11,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:40:23.217Z",
+        "modified_date": "2022-01-16T18:40:23.217Z",
+        "frequency": 1,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "3320.20",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "999999.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "900.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 12,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:06.089Z",
+        "modified_date": "2022-01-16T18:41:06.089Z",
+        "frequency": 3,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "150.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "300.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "0.54"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 13,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:06.095Z",
+        "modified_date": "2022-01-16T18:41:06.095Z",
+        "frequency": 3,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "300.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "9999.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "1.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 14,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "300.23",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "600.23",
+        "fee_amount_currency": "USD",
+        "fee_amount": "100.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 15,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "600.23",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "1000.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "160.00"
+    }
+}, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 16,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "1000.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "1200.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "200.00"
+    }
+}
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 17,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "1200.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "1500.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "280.00"
+    }
+}
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 18,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "1500.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "2000.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "300.00"
+    }
+}
+
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 19,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "2000.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "2500.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "350.00"
+    }
+}
+
+
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 20,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "2500.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "3000.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "410.00"
+    }
+}
+
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 21,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "3000.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "3800.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "425.00"
+    }
+}
+
+, {
+    "model": "creditline_settings.carriedbalancefee",
+    "pk": 22,
+    "fields": {
+        
+        "created_date": "2022-01-16T18:41:55.078Z",
+        "modified_date": "2022-01-16T18:41:55.078Z",
+        "frequency": 4,
+        "minimum_amount_currency": "USD",
+        "minimum_amount": "3800.00",
+        "maximum_amount_currency": "USD",
+        "maximum_amount": "999999.00",
+        "fee_amount_currency": "USD",
+        "fee_amount": "600.00"
+    }
+ }
+]

@@ -1,0 +1,298 @@
+[
+{
+  "model": "creditline_settings.transactioncode",
+  "pk": 1,
+  "fields": {
+     
+ 
+    "code": 10001,
+    "type": "open_account",
+    "description": "Open Account",
+    "function_name": "open_account",
+    "is_reversable": true,
+    "reversal_code": null
+  }
+},
+{
+  "model": "creditline_settings.transactioncode",
+  "pk": 2,
+  "fields": {
+     
+   
+    "code": 10002,
+    "type": "cash_advance",
+    "description": null,
+    "function_name": "cash_advance",
+    "is_reversable": true,
+    "reversal_code": null
+  }
+},
+{
+  "model": "creditline_settings.transactioncode",
+  "pk": 3,
+  "fields": {
+    
+    "code": 10003,
+    "type": "payment",
+    "description": null,
+    "function_name": "payment",
+    "is_reversable": true,
+    "reversal_code": null,
+    "changes_minimum_due":true
+  }
+},
+{
+  "model": "creditline_settings.transactioncode",
+  "pk": 4,
+  "fields": {
+     
+ 
+    "code": 10004,
+    "type": "epd_payment",
+    "description": null,
+    "function_name": "epd_payment",
+    "is_reversable": true,
+    "reversal_code": null
+  }
+},
+{
+  "model": "creditline_settings.calculationcode",
+  "pk": 1,
+  "fields": {
+     
+    "created_date": "2021-11-17T05:19:02.423Z",
+    "modified_date": "2021-11-17T05:19:02.423Z",
+    "code": "CASH_ADVANCE_10_PERCENT",
+    "description": "add 10% as cash advance fee",
+    "calcluation_type": "R",
+    "factor": "10.0",
+    "minimum_amount_currency": "USD",
+    "minimum_amount": "0.00",
+    "maximum_amount_currency": "USD",
+    "maximum_amount": "0.00",
+    "taxable": false,
+    "special_calcualtion_function": null
+  }
+},
+{
+  "model": "creditline_settings.calculationcode",
+  "pk": 2,
+  "fields": {
+     
+    "created_date": "2021-11-17T05:27:53.785Z",
+    "modified_date": "2021-11-17T05:27:53.785Z",
+    "code": "LATE_FEE",
+    "description": "Late fee flat $30",
+    "calcluation_type": "R",
+    "factor": "5.00000",
+    "minimum_amount_currency": "USD",
+    "minimum_amount": "30.00",
+    "maximum_amount_currency": "USD",
+    "maximum_amount": "0.00",
+    "taxable": false,
+    "special_calcualtion_function": null
+  }
+},
+{
+  "model": "creditline_settings.calculationcode",
+  "pk": 3,
+  "fields": {
+     
+    "created_date": "2021-11-17T05:28:34.159Z",
+    "modified_date": "2021-11-17T05:28:39.337Z",
+    "code": "NSF Fee",
+    "description": "NSF Fee last $35",
+    "calcluation_type": "F",
+    "factor": "35.00000",
+    "minimum_amount_currency": "USD",
+    "minimum_amount": "0.00",
+    "maximum_amount_currency": "USD",
+    "maximum_amount": "0.00",
+    "taxable": false,
+    "special_calcualtion_function": null
+  }
+},
+{
+  "model": "creditline_settings.calculationcode",
+  "pk": 4,
+  "fields": {
+     
+    "created_date": "2021-11-17T05:29:12.014Z",
+    "modified_date": "2021-11-17T05:29:12.014Z",
+    "code": "EPD_Fee",
+    "description": "Flat $50",
+    "calcluation_type": "F",
+    "factor": "50.00000",
+    "minimum_amount_currency": "USD",
+    "minimum_amount": "0.00",
+    "maximum_amount_currency": "USD",
+    "maximum_amount": "0.00",
+    "taxable": false,
+    "special_calcualtion_function": null
+  }
+},
+{
+  "model": "creditline_settings.calculationcode",
+  "pk": 5,
+  "fields": {
+     
+    "created_date": "2021-11-17T05:29:47.009Z",
+    "modified_date": "2021-11-17T05:29:47.009Z",
+    "code": "Minimum amount due",
+    "description": "10% of total amount due",
+    "calcluation_type": "R",
+    "factor": "9.99997",
+    "minimum_amount_currency": "USD",
+    "minimum_amount": "0.00",
+    "maximum_amount_currency": "USD",
+    "maximum_amount": "0.00",
+    "taxable": false,
+    "special_calcualtion_function": null
+  }
+},
+{
+  "model": "creditline_settings.product",
+  "pk": 1,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.960Z",
+    "modified_date": "2021-11-12T02:58:19.960Z",
+    "name": "basic_loc",
+    "description": "basic loc project",
+    "is_default": false
+  }
+},
+{
+  "model": "creditline_settings.setting",
+  "pk": 1,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.964Z",
+    "modified_date": "2021-11-12T02:58:19.964Z",
+    "product": 1,
+    "epd_allowed": true,
+    "epd_days": "90",
+    "scra_rate": "6.00000",
+    "minimum_cash_advance_amount": "0.00",
+    "minimum_cash_advance_amount_currency": "USD",
+    "direct_fund_to_dealer": false,
+    "withhold_cash_advance_fee": false,
+    "default_communication": "E",
+    "cutoff_time": "16:00:00",
+    "minimum_refund_amount": "1.00",
+    "minimum_refund_amount_currency": "USD",
+    "requested_refund_days": "7",
+    "default_refund_days": "180",
+    "allow_frequency_change": false,
+    "auto_payment_amount_option": "M",
+    "collection_call_days": "0",
+    "no_transaction_close_days": "0",
+    "no_cash_advance_close_days": "0",
+    "send_zero_amount_statements": false
+  }
+},
+{
+  "model": "creditline_settings.frequency",
+  "pk": 1,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.968Z",
+    "modified_date": "2021-11-17T05:31:37.522Z",
+    "parent": 1,
+    "frequency": "W",
+    "payment_hold_days": "5",
+    "epd_cycle_hold_days": "5",
+    "statement_days": "14",
+    "min_1st_stmt_days": "3",
+    "future_schedule_period": "12",
+    "cash_advance_fee_code": 1,
+    "late_fee_code": 2,
+    "nsf_fee_code": 3,
+    "epd_fee_code": 4,
+    "minimum_amount_due_code": 5,
+    "past_due_grace_days": "5",
+    "max_late_fee_amount": "30.00",
+    "max_late_fee_amount_currency": "USD",
+    "max_nsf_fee_amount": "30.00",
+    "max_nsf_fee_amount_currency": "USD"
+  }
+},
+{
+  "model": "creditline_settings.frequency",
+  "pk": 2,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.971Z",
+    "modified_date": "2021-11-17T05:31:57.841Z",
+    "parent": 1,
+    "frequency": "B",
+    "payment_hold_days": "5",
+    "epd_cycle_hold_days": "5",
+    "statement_days": "14",
+    "min_1st_stmt_days": "3",
+    "future_schedule_period": "12",
+    "cash_advance_fee_code": 1,
+    "late_fee_code": 2,
+    "nsf_fee_code": 3,
+    "epd_fee_code": 4,
+    "minimum_amount_due_code": 5,
+    "past_due_grace_days": "5",
+    "max_late_fee_amount": "30.00",
+    "max_late_fee_amount_currency": "USD",
+    "max_nsf_fee_amount": "30.00",
+    "max_nsf_fee_amount_currency": "USD"
+  }
+},
+{
+  "model": "creditline_settings.frequency",
+  "pk": 3,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.974Z",
+    "modified_date": "2021-11-17T05:31:48.563Z",
+    "parent": 1,
+    "frequency": "T",
+    "payment_hold_days": "5",
+    "epd_cycle_hold_days": "5",
+    "statement_days": "14",
+    "min_1st_stmt_days": "3",
+    "future_schedule_period": "12",
+    "cash_advance_fee_code": 1,
+    "late_fee_code": 2,
+    "nsf_fee_code": 3,
+    "epd_fee_code": 4,
+    "minimum_amount_due_code": 5,
+    "past_due_grace_days": "5",
+    "max_late_fee_amount": "30.00",
+    "max_late_fee_amount_currency": "USD",
+    "max_nsf_fee_amount": "30.00",
+    "max_nsf_fee_amount_currency": "USD"
+  }
+},
+{
+  "model": "creditline_settings.frequency",
+  "pk": 4,
+  "fields": {
+     
+    "created_date": "2021-11-12T02:58:19.976Z",
+    "modified_date": "2021-11-17T05:31:44.243Z",
+    "parent": 1,
+    "frequency": "M",
+    "payment_hold_days": "5",
+    "epd_cycle_hold_days": "5",
+    "statement_days": "14",
+    "min_1st_stmt_days": "7",
+    "future_schedule_period": "12",
+    "cash_advance_fee_code": 1,
+    "late_fee_code": 2,
+    "nsf_fee_code": 3,
+    "epd_fee_code": 4,
+    "minimum_amount_due_code": 5,
+    "past_due_grace_days": "5",
+    "max_late_fee_amount": "30.00",
+    "max_late_fee_amount_currency": "USD",
+    "max_nsf_fee_amount": "30.00",
+    "max_nsf_fee_amount_currency": "USD"
+  }
+}
+]

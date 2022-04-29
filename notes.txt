@@ -1,0 +1,7 @@
+pip install --upgrade virtualenv
+virtualenv venv --python=python3.8
+source venv/bin/activate
+pip install -r requirements.txt
+python manage.py runserver 9019
+python manage.py test
+python manage.py test the_system
