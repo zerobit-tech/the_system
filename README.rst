@@ -1,12 +1,5 @@
-django-receipts
+the_system
 ===============
-
-This is sample code used in the Real Python article [Writing an Installable Django App](???). The article describes how to take an app from an existing Django project and make it a stand-alone installable package avilable on PyPI.
-
-Installable App
----------------
-
-This app models a list of items on a receipt. Each item has a description and a cost. A receipt may reference multiple items.
 
 This app can be installed and used in your django project by:
 
@@ -15,7 +8,7 @@ This app can be installed and used in your django project by:
     $ pip install realpython-django-receipts
 
 
-Edit your `settings.py` file to include `'receipts'` in the `INSTALLED_APPS`
+Edit your `settings.py` file to include `'the_system'` in the `INSTALLED_APPS`
 listing.
 
 .. code-block:: python
@@ -23,8 +16,47 @@ listing.
     INSTALLED_APPS = [
         ...
 
-        'receipts',
+        'the_system',
     ]
+
+
+
+    MIDDLEWARE = [
+        ...
+        'the_system.middleware.TheSystemMiddleware',
+        'the_system.middleware.CurrentUserMiddleware',
+    ]
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'DIRS': [os.path.join(BASE_DIR, 'templates')],
+            'APP_DIRS': True,
+            'OPTIONS': {
+                'context_processors': [
+                    'django.template.context_processors.debug',
+                    'django.template.context_processors.request',
+                    'django.contrib.auth.context_processors.auth',
+                    'django.contrib.messages.context_processors.messages',
+
+                    ...
+
+                    'the_system.context_processor.SystemConfigContextProcessor',  ## <<<
+                    
+                    ...
+
+                    'django.template.context_processors.static',
+                
+                ],
+            },
+        },
+    ]
+
+    REST_FRAMEWORK = {
+    ...
+    'EXCEPTION_HANDLER': 'the_system.drf_utils.exception_handler',
+    ...
+    }
 
 
 Edit your project `urls.py` file to import the URLs:
@@ -35,7 +67,7 @@ Edit your project `urls.py` file to import the URLs:
     url_patterns = [
         ...
 
-        path('receipts/', include('receipts.urls')),
+        path('system/', include('the_system.urls')),
     ]
 
 
@@ -44,7 +76,7 @@ Finally, add the models to your database:
 
 .. code-block:: bash
 
-    $ ./manage.py makemigrations receipts
+    $ ./manage.py makemigrations the_system
 
 
 The "project" Branch
@@ -53,9 +85,4 @@ The "project" Branch
 The `master branch <https://github.com/realpython/django-receipts/tree/master>`_ contains the final code for the PyPI package. There is also a `project branch <https://github.com/realpython/django-receipts/tree/project>`_ which shows the "before" case -- the Django project before the app has been removed.
 
 
-Docs & Source
--------------
-
-* Article: https://realpython.com/installable-django-app/
-* Source: https://github.com/realpython/django-receipts
-* PyPI: https://pypi.org/project/realpython-django-receipts/
+ 
