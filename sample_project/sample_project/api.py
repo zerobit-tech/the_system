@@ -10,7 +10,10 @@ from ninja.parser import Parser
 from ninja.errors import ValidationError
 
  
-from the_system.api import router as user_router
+from the_user.api import router as user_router
+
+from the_system.api import router as system_router
+
 
  
 
@@ -43,7 +46,7 @@ api = NinjaAPI(urls_namespace="api",
 
  
 api.add_router("/", user_router)
-
+api.add_router("/", system_router)
 
 # @api.exception_handler(ValidationError)
 # def validation_errors(request, exc):
