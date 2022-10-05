@@ -1,0 +1,80 @@
+{{% extends "base.html" %}}
+
+{{% load i18n %}}
+{{% load static %}}
+{{% block head_title %}}{{% trans "Clients" %}}{{% endblock %}}
+
+{{% block content %}}
+{{% load crispy_forms_tags %}}
+
+
+<div class="container-fluid">
+    <!-- LOGIN -->
+    <div class="row mt-2">
+        <div class="col">
+            <div class="card">
+                <div class="card-header"><Strong>{{% trans '{self.model_name}' %}}</Strong> 
+                    
+                    <button class="btn btn-link float-right" type="button" data-toggle="collapse" data-target="#filter_colapse"
+                    aria-expanded="false" aria-controls="filter_colapse">
+                    <svg class="c-icon">
+                        <use xlink:href="{{{STATIC_URL}}}coreui/vendors/coreui/icons/svg/free.svg#cil-filter "></use>
+                    </svg>
+                </button>
+
+
+                <form class="form-inline float-right" action="" method="get">
+                    <button class="btn btn-link" type="submit">{{% trans "Refresh" %}}</button>
+                </form>
+                    
+                    <a href = "{{% url '{self.app_name.lower()}:{self.model_name.lower()}_add' %}}" class="btn btn-primary float-right">{{% trans '+ Add new' %}}</a> </div>
+                <div class="card-body">
+                    <div class="row">
+                    {{% include 'form_filterset.html' %}}
+
+                    <div class="col">
+                    <table class="table table-responsive-sm table-hover table-outline mb-0 w-100 d-block d-md-table">
+                        <thead class="thead-dark">
+                        <tr>
+                      
+                            {self.table_headings}
+                            <th  class="">{{% trans "Options" %}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{% for {self.model_name.lower()} in object_list %}}
+                        <tr>
+                            {self.table_data}
+
+                            <td  class=" ">
+   
+                                <a href="{{{self.model_name.lower()}.get_absolute_url}}" class="">
+                                    {{% trans "View" %}} 
+                                </a>  
+                            </td>
+
+                        </tr>
+                        {{% empty %}}
+                        <tr >
+
+                            <td  class=" " colspan="6"><p class="">{{% trans 'No Record Found.' %}}</p></td>
+
+                        </tr>
+
+                        {{% endfor %}}
+                        </tbody>
+                    </table>
+                    {{% include "pagination2.html" with page_obj=page_obj %}}
+                </div>
+            </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+{{% endblock %}}

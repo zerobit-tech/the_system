@@ -1,0 +1,6 @@
+from django.urls import path
+from . import   views_api 
+
+app_name = '{app_name.lower()}_api'
+urlpatterns = [{url_paths}
+]

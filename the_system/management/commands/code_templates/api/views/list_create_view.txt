@@ -1,0 +1,49 @@
+import logging
+from django.views.decorators.debug import sensitive_variables,sensitive_post_parameters
+from django.utils.decorators import method_decorator
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated  # <-- Here
+from the_clients.drf.permissions import IsClient
+
+from {self.app_name}.models import {model_name} 
+from {self.app_name}.serializers import  {model_name}Serializer
+
+logger = logging.getLogger('ilogger')  
+
+
+class {model_name}{view_name}(generics.ListCreateAPIView):
+    queryset = {model_name}objects.all()
+    serializer_class = {model_name}Serializer
+    permission_classes = (IsAuthenticated,IsClient)  
+
+    filterset_fields = [ {filterset_fields} ] 
+
+    #https://www.django-rest-framework.org/api-guide/filtering/#setting-filter-backends
+
+    def get_queryset(self):
+        query_set = {model_name}.objects.filter({client_field} = self.request.user.client).all() 
+
+        #if("account_id" in self.kwargs):
+        #	self.account = get_object_or_404(Account, id=self.kwargs['account_id'])
+        #	query_set =  {model_name}.objects.filter(account=self.account)
+
+        return query_set
+
+    def perform_create(self, serializer):
+        super().perform_create(serializer)
+        # -- OR --
+        #acr= serializer.save( client=self.request.user.client) # return the instance of the model
+        #acr.process()
+
+
+    def get_serializer_class(self):
+        #if self.request.method =="GET":
+        #    return super().get_serializer_class()
+        #else:
+        #    return AccountCreationRequestSerializer
+        
+        return super().get_serializer_class()
+
+    #@method_decorator(sensitive_post_parameters('some_senstive_field'))
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs) 

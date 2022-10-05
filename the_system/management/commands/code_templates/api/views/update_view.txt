@@ -1,0 +1,27 @@
+import logging
+from django.http import Http404
+from django.shortcuts import get_object_or_404
+from rest_framework import generics
+from {self.app_name}.models import {model_name} 
+from {self.app_name}.serializers import  {model_name}Serializer
+
+class {model_name}{view_name}(generics.UpdateAPIView):
+    queryset = {model_name}.objects.all()
+    serializer_class = {model_name}Serializer
+    lookup_field ='{lookup_field}'
+    permission_classes = (IsAuthenticated,IsClient)
+    # def update(self,instance,request):
+    #     instance = self.get_object()
+    #     serializer= self.get_serializer(instance,data=request.data,partial=True)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response({"message":"mobile number updated successfully"})
+
+    #     else:
+    #         return Response({"message":"failed"})
+
+    def get_object(self):
+        obj = super().get_object()
+        if obj.{client_field} != self.request.user.client:
+            raise Http404
+        return obj

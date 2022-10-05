@@ -1,0 +1,54 @@
+<!-- {self.model_name.lower()}_confirm_delete.html-->
+
+{{% extends 'base.html' %}}
+{{% load i18n %}}
+{{%load crispy_forms_tags %}}
+{{% block content %}}
+<div class="container-fluid mt-3">
+    <div class="card">
+        <div class="card-header">
+            {{% trans "Delete Confirmation" %}}
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <form method="post">{{% csrf_token %}}
+
+
+
+                        <p>Are you sure you want to delete "#@object@#"?</p>
+        
+        
+                        <a class="" href="#@request.META.HTTP_REFERER@#">{{% trans "Cancel" %}}</a>&nbsp;&nbsp;
+                                            
+        
+                        <button class="btn btn-danger px-4" type="submit">{{{% trans "Confirm delete" %}}}
+                        </button>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <table
+                                    class="table table-borderless table-responsive-sm table-hover   mb-0 w-100 d-block d-md-table">
+                                    <tbody>
+    
+                                        {self.table_data}
+    
+    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{{% endblock %}}
+ 

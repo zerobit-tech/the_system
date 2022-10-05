@@ -1,0 +1,20 @@
+import logging
+from django.shortcuts import get_object_or_404
+from rest_framework import generics
+from {self.app_name}.models import {model_name} 
+from {self.app_name}.serializers import  {model_name}Serializer
+
+logger = logging.getLogger('ilogger')
+
+class {model_name}{view_name}(generics.ListAPIView):
+	serializer_class = {model_name}Serializer
+	permission_classes = (IsAuthenticated,IsClient)
+
+	def get_queryset(self):
+		query_set = {model_name}.objects.filter({client_field} = self.request.user.client).all() 
+
+		#if("account_id" in self.kwargs):
+		#	self.account = get_object_or_404(Account, id=self.kwargs['account_id'])
+		#	query_set =  {model_name}.objects.filter(account=self.account)
+ 
+		return query_set

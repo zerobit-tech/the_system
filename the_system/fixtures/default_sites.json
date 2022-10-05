@@ -1,0 +1,10 @@
+[
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "https://1d1d-2600-1700-1b29-2170-640-919e-43d-c78b.ngrok.io",
+    "name": "via_ngrok"
+  }
+}
+]

@@ -1,0 +1,54 @@
+<!-- {self.model_name.lower()}_update_form.html-->
+
+
+{{% extends "base.html" %}}
+
+{{% load i18n static %}}
+{{% load absolute_url %}}
+
+{{% load crispy_forms_tags %}}
+
+{{% block head_title %}}{{% trans "Update" %}}{{% endblock %}}
+
+{{% block base_header %}}
+{{% include 'header.html' with breadcrumb="breadcrumb_level1.html" object=object%}}
+{{% endblock base_header %}}
+
+
+{{% block content %}}
+
+
+<div class="container-fluid">
+    <!-- LOGIN -->
+    <div class="row mt-2">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header"><Strong>{{% trans "Update" %}} #@object@# </Strong> </div>
+
+                <div class="card-body">
+                    <form method="POST" onsubmit="show_processing_model()" action="" class="">
+                        {{% csrf_token %}}
+                        #@ form|crispy @#
+
+
+                        <div class="row">
+                            <div class="col">
+                                <a class="text-danger"
+                                    href="#@request.META.HTTP_REFERER@#">{{% trans "Cancel" %}}</a>&nbsp;&nbsp;
+                                <button class="btn btn-primary px-4" type="submit">{{% trans "Update" %}}
+                                </button>
+                            </div>
+
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+ 
+{{% endblock %}}
+ 

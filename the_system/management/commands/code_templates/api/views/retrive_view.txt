@@ -1,0 +1,21 @@
+import logging
+from django.shortcuts import get_object_or_404
+from rest_framework import generics
+from {self.app_name}.models import {model_name} 
+from {self.app_name}.serializers import  {model_name}Serializer
+
+logger = logging.getLogger('ilogger')
+ 
+
+class {model_name}{view_name}(generics.RetrieveAPIView): 
+    queryset = {model_name}.objects.all()
+    serializer_class = {model_name}Serializer
+    lookup_field ='{lookup_field}'
+    permission_classes = (IsAuthenticated,IsClient)
+ 
+
+    def get_object(self):
+        obj = super().get_object()
+        if obj.{client_field} != self.request.user.client:
+            raise Http404
+        return obj
