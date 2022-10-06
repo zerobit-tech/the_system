@@ -2,11 +2,14 @@
 from django.urls import reverse_lazy
 from ninja import Router 
 from ninja.security import django_auth
-from the_user.api_auth import BearerAuth
-router = Router()
-
 from ninja import Schema , Field
 
+
+from the_user.api_auth import BearerAuth
+from the_system.decorators.health_providers import registered_health_check_providers
+
+
+router = Router()
  
  
 
@@ -20,7 +23,22 @@ def health(request):
     """
     #permission_classes = [permissions.IsAuthenticated,IsClient]
 
-    content = {'healthy': True}
+    content = {'healthy': True,'message':""}
+    for checker in registered_health_check_providers:
+        healthy = True
+        message = ""
+        try:
+            healthy,message = checker(request)
+        except Exception as e:
+            healthy = False        
+            message = str(e)
+
+        if not healthy:
+            content["healthy"] = False
+            content["message"] = str(message)
+            break
+
+   
     return content
 
 

@@ -5,7 +5,7 @@ This app can be installed and used in your django project by:
 
 .. code-block:: bash
 
-    $ pip install the_system
+    $ pipenv install git+https://github.com/zerobit-tech/the_system@main#egg=the_system
 
 
 Edit your `settings.py` file to include `'the_system'` in the `INSTALLED_APPS`
