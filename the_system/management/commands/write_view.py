@@ -24,17 +24,18 @@ def _ask_for_option_to_use(options,title="Please select one"  ):
 
 
 def _ask_for_options_to_use(options,title="Please select model fields",  min_selection_count=1):
+    new_options = options
     if '*ALL' not in options:
-        options.append("*ALL")
+        new_options = options + ["*ALL"]
 
-    selected = pick(options, title, multiselect=True, min_selection_count=min_selection_count)
+    selected = pick(new_options, title, multiselect=True, min_selection_count=min_selection_count)
 
     return_list = [ field  for field,index in selected]
     if '*ALL' in return_list:
         return_list =  options
     
 
-    return [ item for item in return_list if not str(item).startswith("*")]
+    return [ item for item in return_list if not str(item).strip().startswith("*")]
 
 
 
@@ -218,8 +219,8 @@ class ListView:
 
 
     def is_choice_field(self, field_name):
-        field = self.model._meta.get_field(field_name)
         try:
+            field = self.model._meta.get_field(field_name)
             return True if field.choices else False
         except:
             return False
