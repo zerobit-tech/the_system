@@ -4,40 +4,58 @@ from ninja import Router
 from ninja.security import django_auth
 from ninja import Schema , Field
 
-
+from typing import List
 from the_user.api_auth import BearerAuth
 from the_system.health_check import check_health
-
+import logging
+logger = logging.getLogger('ilogger')
 
 router = Router()
  
  
+# -------------------------------------------------------
+#
+# ------------------------------------------------------- 
 class HealthData(Schema):
-    healthy: bool
-    message: str
     checkpoint: str
+    healthy: bool
+    messages: list
+
+
+class OverallHealthData(Schema):
+    healthy: bool
+    healthdata: List[HealthData]
 # -------------------------------------------------------
 #
 # -------------------------------------------------------
-@router.get("/health", url_name="system_health",auth= BearerAuth(), response= HealthData)
+@router.get("/health", url_name="system_health",auth= BearerAuth(), response= OverallHealthData)
 def health(request):
     """
     Use this endpoint to verify/enable a TOTP device
     """
     #permission_classes = [permissions.IsAuthenticated,IsClient]
 
-    content = {'healthy': True,'message':"All good","checkpoint":""}
+    overall_healthy = True
 
-    health_data_list = check_health(request)
-    for health_data in health_data_list:
-        check_point = health_data['checkpoint']
+    health_data_dict = {'healthy': True,'messages':["All good"],"checkpoint":""}
+    health_data_list= []
+
+    # get all data
+    for health_data in check_health(request):
+        #check_point = health_data['checkpoint']
         healthy = health_data['healthy']
-        message = health_data['message']
+        #messages = health_data['messages']
+        
+        health_data_list.append(health_data)
 
         if not healthy:
-            content = {'healthy': healthy,'message':message,"checkpoint":check_point}
+            overall_healthy = False
+ 
 
-    return 200, content
+    if not health_data_list:
+        health_data_list.append(health_data_dict)
+
+    return 200, {"healthy":overall_healthy,'healthdata': health_data_list}
 
 
 # -------------------------------------------------------

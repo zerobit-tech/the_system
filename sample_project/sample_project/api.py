@@ -9,7 +9,8 @@ from ninja.renderers import BaseRenderer
 from ninja.parser import Parser
 from ninja.errors import ValidationError
 
- 
+from the_user.api_auth import BearerAuth
+
 from the_user.api import router as user_router
 
 from the_system.api import router as system_router
@@ -39,7 +40,7 @@ api = NinjaAPI(urls_namespace="api",
                 docs_decorator=login_required,
                 docs_url="/docs/",
                 csrf=True,
-              
+                auth= BearerAuth(),
                 renderer=ORJSONRenderer()  ,
                 parser=ORJSONParser())
 

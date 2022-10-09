@@ -23,7 +23,7 @@
                   <tr>
                       <th  class=" ">{% trans "Check Point" %}</th>
                       <th  class="">{% trans "is Healthy" %}</th>
-                      <th  class="">{% trans "Message" %}</th>
+                      <th  class="">{% trans "Messages" %}</th>
             
 
                   </tr>
@@ -41,7 +41,11 @@
               </td >
              
               <td  class=" {% if not health_data.healthy %} text-danger {% endif %} ">
-               {{ health_data.message }}
+              <ul>
+                 {% for message in health_data.messages %}
+                  <li> {{ message }} </li>
+                  {% endfor %}
+              </ul>
            </td >
           
 

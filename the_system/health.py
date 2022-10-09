@@ -8,10 +8,10 @@ def check_db_connections(request):
     messages = []
     
     for connection in connections:
-        print("connection  --", connection ,  type(connection))
         try:
             c = connections[connection].cursor()
-            messages.append(f"Database {connection}: connection is up and running ")
+            messages.append(f"Database {connection}: connection is up and running.")
+             
         except OperationalError as e:
             return False, str(e)
 

@@ -16,19 +16,21 @@ def check_health(request):
 
     for check_point_name in _registered_health_check_providers:
         healthy = True
-        message = ""
+        messages = ""
         try:
             checker = _registered_health_check_providers[check_point_name]
-            healthy,message = checker(request)
+            healthy,messages = checker(request)
 
-            if isinstance(message, list):
-                message = "\n".join([str(m) for m in message])
+
 
         except Exception as e:
             healthy = False        
-            message = str(e)
+            messages = str(e)
 
-        health_data_list.append({"checkpoint":check_point_name , "healthy": healthy , "message":message})
+        if not isinstance(messages, list):
+            messages = [messages]
+
+        health_data_list.append({"checkpoint":check_point_name , "healthy": healthy , "messages":messages})
 
     return health_data_list
 

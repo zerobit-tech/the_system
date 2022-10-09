@@ -4,6 +4,8 @@ import time
 from hashlib import md5
 from django.core.cache import cache
 from django.utils import timezone
+import logging
+logger = logging.getLogger('ilogger')
 
  
 # ----------------------------------------------------------
