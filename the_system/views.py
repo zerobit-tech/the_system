@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 from django.contrib.auth.decorators import login_required
 from the_user.decorators import otp_required,must_be
-from the_user.initial_groups import TECH_SUPPORT
+from the_user.initial_groups import TECH_SUPPORT,CUSTOMER_CARE_REP
 
 from django.utils import timezone
 from datetime import datetime
@@ -18,6 +18,17 @@ from the_system.utils.date_time_utils import _write_fake_time
 from django.core.cache import cache
 import logging
 logger = logging.getLogger('ilogger')
+
+from the_system.health_check import check_health
+
+
+@login_required
+@otp_required
+@must_be(group_name=CUSTOMER_CARE_REP)
+def health(request):
+    context = {'health_data_list': check_health(request)}
+    return render(request, 'the_system/health_check.html',context)
+
 
 # -------------------------------------------------------
 #

@@ -6,40 +6,38 @@ from ninja import Schema , Field
 
 
 from the_user.api_auth import BearerAuth
-from the_system.decorators.health_providers import registered_health_check_providers
+from the_system.health_check import check_health
 
 
 router = Router()
  
  
-
+class HealthData(Schema):
+    healthy: bool
+    message: str
+    checkpoint: str
 # -------------------------------------------------------
 #
 # -------------------------------------------------------
-@router.get("/health", url_name="system_health",auth=[django_auth,BearerAuth()])
+@router.get("/health", url_name="system_health",auth= BearerAuth(), response= HealthData)
 def health(request):
     """
     Use this endpoint to verify/enable a TOTP device
     """
     #permission_classes = [permissions.IsAuthenticated,IsClient]
 
-    content = {'healthy': True,'message':""}
-    for checker in registered_health_check_providers:
-        healthy = True
-        message = ""
-        try:
-            healthy,message = checker(request)
-        except Exception as e:
-            healthy = False        
-            message = str(e)
+    content = {'healthy': True,'message':"All good","checkpoint":""}
+
+    health_data_list = check_health(request)
+    for health_data in health_data_list:
+        check_point = health_data['checkpoint']
+        healthy = health_data['healthy']
+        message = health_data['message']
 
         if not healthy:
-            content["healthy"] = False
-            content["message"] = str(message)
-            break
+            content = {'healthy': healthy,'message':message,"checkpoint":check_point}
 
-   
-    return content
+    return 200, content
 
 
 # -------------------------------------------------------
@@ -60,6 +58,6 @@ def toggletheme(request, theme:ThemeSchema):
     if new_theme:
         request.session["uitheme"] = new_theme
 
-    users_url = reverse_lazy("api:toggle_theme")
+    users_url = reverse_lazy("internalapi:toggle_theme")
 
     return 200, {"done": True,"users_url":str(users_url)}

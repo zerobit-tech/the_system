@@ -11,7 +11,7 @@ class TheSystemConfig(AppConfig):
     def ready(self):
         from . import signals
         from . import signals_handlers
-        
+        from . import health 
         # try:
              
         #     from .initial_load import create_initial_user_groups,create_initial_permissions, create_service_user
