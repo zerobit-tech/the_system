@@ -10,8 +10,8 @@ from the_system.health_check import check_health
 import logging
 logger = logging.getLogger('ilogger')
 
-router = Router()
- 
+router = Router(auth= BearerAuth())
+internal_router = Router(auth=django_auth) 
  
 # -------------------------------------------------------
 #
@@ -28,7 +28,7 @@ class OverallHealthData(Schema):
 # -------------------------------------------------------
 #
 # -------------------------------------------------------
-@router.get("/health", url_name="system_health",auth= BearerAuth(), response= OverallHealthData)
+@router.get("/health", url_name="system_health", response= OverallHealthData)
 def health(request):
     """
     Use this endpoint to verify/enable a TOTP device
@@ -65,7 +65,7 @@ def health(request):
 class ThemeSchema(Schema):
     theme:str 
 
-@router.post("/toggletheme", url_name="toggle_theme",auth=django_auth)
+@internal_router.post("/toggletheme", url_name="toggle_theme")
 def toggletheme(request, theme:ThemeSchema):
     """
     Use this endpoint to verify/enable a TOTP device
