@@ -13,8 +13,11 @@ class Command(BaseCommand):
     excluded_folders = ['.git','.idea','__pycache__','coreui','static']
 
     def add_arguments(self, parser):
+        parser.add_argument('project_path',   type=str)
         parser.add_argument('new_project_name',   type=str)
         parser.add_argument('old_project_name',   type=str , nargs='?', default='BaseDjangoProject')
+   
+
         parser.add_argument(
             '--commit',
             action='store_true',
@@ -22,15 +25,20 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        project_path = options.get('project_path', None)
+
+
+        if project_path is None or not os.path.exists(project_path) or not os.path.isdir(project_path):
+            self.stdout.write(self.style.ERROR(f"Please provide a correct project path: {project_path} not found"))
+
         new_project_name = options.get('new_project_name', None)
         old_project_name = options.get('old_project_name', 'BaseDjangoProject')
         folder_to_rename = []
         if not new_project_name:
             raise CommandError('Parameter new_project_name required.')
 
-        BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
-        self.stdout.write(self.style.SUCCESS(f"renaming project from {old_project_name} to {new_project_name} {BASE_DIR}"))
-        for folderName, subFolders,    fileNames in os.walk(BASE_DIR):
+        self.stdout.write(self.style.SUCCESS(f"renaming project from {old_project_name} to {new_project_name} {project_path}"))
+        for folderName, subFolders,    fileNames in os.walk(project_path):
             #self.stdout.write(f'{folderName} ::  {subFolders}  :: {fileNames}')
 
             if any(ext in folderName for ext in self.excluded_folders):
