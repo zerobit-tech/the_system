@@ -15,7 +15,8 @@ requirements = [
     'the_user @ git+https://github.com/zerobit-tech/the_user@main#egg=the_user',
 
     'pandas==1.5.0',
-    'numpy==1.23.3'
+    'numpy==1.23.3',
+    'pick'
 
 ]
 
