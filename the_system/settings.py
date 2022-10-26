@@ -3,15 +3,15 @@ from django.core.exceptions import ImproperlyConfigured
  
 from django.conf import settings
 
+class AppSettings():
+    SITES_ENABLED = "django.contrib.sites" in settings.INSTALLED_APPS
+    SOCIALACCOUNT_ENABLED = "allauth.socialaccount" in settings.INSTALLED_APPS
 
-SITES_ENABLED = "django.contrib.sites" in settings.INSTALLED_APPS
-SOCIALACCOUNT_ENABLED = "allauth.socialaccount" in settings.INSTALLED_APPS
+    LOGIN_REDIRECT_URL = getattr(settings, "LOGIN_REDIRECT_URL", "/")
 
-LOGIN_REDIRECT_URL = getattr(settings, "LOGIN_REDIRECT_URL", "/")
+    USER_MODEL = getattr(settings, "AUTH_USER_MODEL", "auth.User")
 
-USER_MODEL = getattr(settings, "AUTH_USER_MODEL", "auth.User")
-
-
+app_settings = AppSettings()
 
 def _get_setting(key, default):
     return_value =  getattr(settings, key, default)
