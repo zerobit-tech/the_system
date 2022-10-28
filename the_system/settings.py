@@ -13,7 +13,7 @@ class AppSettings():
 
 app_settings = AppSettings()
 
-def _get_setting(key, default):
+def _get_setting(key, default=None):
     return_value =  getattr(settings, key, default)
     if return_value is None:
         return_value = default
