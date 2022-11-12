@@ -1,3 +1,8 @@
+import logging
+import traceback
+
+logger = logging.getLogger('ilogger')
+
 
 def check_health(request):
     """
@@ -26,6 +31,7 @@ def check_health(request):
         except Exception as e:
             healthy = False        
             messages = str(e)
+            logger.error(f"Health check failed: {check_point_name} : {str(e)} : {traceback.format_exc()}")
 
         if not isinstance(messages, list):
             messages = [messages]

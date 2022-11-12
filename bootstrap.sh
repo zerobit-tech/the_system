@@ -15,4 +15,8 @@ python setup.py sdist
 cd sample_project/
 python manage.py makemigrations
 python manage.py migrate
+
+git add .
+git commit -m "Fix"
+git push
 python manage.py runserver 9021
